@@ -1,5 +1,5 @@
 import express from "express";
-import cors from "cors"
+import cors from "cors";
 
 const app = express();
 
@@ -11,9 +11,12 @@ app.get("/", (req, res) => {
 });
 
 app.get("/:id", (req, res) => {
+  const id = req.params.id;
   res.send(`Hello World! ${id}`);
 });
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
